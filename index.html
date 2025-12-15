@@ -31,18 +31,18 @@ body {
   line-height: 1.6;
 }
 
-/* Header background */
+/* Header background with overlay */
 .header {
   position: relative;
   background: url('header-bg.png') center/cover no-repeat;
-  padding: 100px 24px 80px 24px; /* extra bottom padding for icons */
+  padding: 100px 24px 120px 24px; /* extra bottom padding for circles */
   text-align: center;
   color: #fff;
   border-radius: 0 0 20px 20px;
   overflow: hidden;
 }
 
-  /* Dark overlay and optional blur */
+/* Dark overlay and subtle blur */
 .header::before {
   content: "";
   position: absolute;
@@ -50,29 +50,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.35); /* darkens the image */
-  backdrop-filter: blur(2px); /* optional: slight blur for readability */
+  background-color: rgba(0, 0, 0, 0.35); /* dark overlay */
+  backdrop-filter: blur(2px); /* subtle blur */
   z-index: 0;
 }
 
-/* Make sure header text is above the overlay */
-.header-text, .header .social {
-  position: relative;
-  z-index: 1;
-}
-
+/* Header content */
 .header-text {
+  position: relative; /* above overlay */
+  z-index: 1;
   max-width: 900px;
   margin: auto;
-}
-
-.header .avatar img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-  animation: fadeUp 1s ease forwards;
 }
 
 /* Top-left label */
@@ -83,6 +71,17 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
+  z-index: 1;
+}
+
+/* Avatar */
+.header .avatar img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  animation: fadeUp 1s ease forwards;
 }
 
 /* Headings */
@@ -99,34 +98,48 @@ h2 {
   color: #fff;
 }
 
-/* Social icons at bottom center of header */
-.header .social {
+/* Social icons inside circles at bottom edge */
+.header .social-container {
   position: absolute;
-  bottom: 16px;
+  bottom: -30px; /* half of circle height */
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 2;
 }
 
-.header .social a {
-  display: inline-flex;
+/* Each circle */
+.header .social-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: flex;
   align-items: center;
-  gap: 10px;
-  color: #fff;
-  font-size: 1.4rem;
-  text-decoration: none;
-  margin: 0 8px;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.header .social a:hover {
-  transform: translateY(-2px);
-  opacity: 0.85;
+.header .social-circle:hover {
+  transform: translateY(-4px);
+  opacity: 0.9;
+}
+
+.header .social-circle a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* About section */
 .about {
   max-width: 520px;
-  margin: 32px auto 0;
+  margin: 60px auto 0;
   font-size: 1.05rem;
   text-align: center;
 }
@@ -146,11 +159,26 @@ h2 {
 /* Responsive */
 @media (max-width: 768px) {
   .header {
-    padding: 80px 16px 60px 16px;
+    padding: 80px 16px 100px 16px;
   }
   .header .avatar img {
     width: 140px;
     height: 140px;
+  }
+  .top-left {
+    font-size: 0.8rem;
+    top: 12px;
+    left: 12px;
+  }
+  .header .social-container {
+    gap: 15px;
+  }
+  .header .social-circle {
+    width: 50px;
+    height: 50px;
+  }
+  .header .social-circle a {
+    font-size: 1.3rem;
   }
 }
 </style>
@@ -159,9 +187,9 @@ h2 {
 <body>
 
 <div class="header">
-  <div class="header-text">
-    <div class="top-left">HASHemi jALIL</div>
+  <div class="top-left">HASHemi jALIL</div>
 
+  <div class="header-text">
     <div class="avatar">
       <img src="profile.jpg" alt="Jalil Hashemi">
     </div>
@@ -170,13 +198,18 @@ h2 {
     <h2>Unternehmensentwickler</h2>
   </div>
 
-  <div class="social">
-    <a href="mailto:jalil.hashemi@bkb.ch" target="_blank">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
+  <!-- Social icons as circles -->
+  <div class="social-container">
+    <div class="social-circle">
+      <a href="mailto:jalil.hashemi@bkb.ch" target="_blank">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+    <div class="social-circle">
+      <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
   </div>
 </div>
 
