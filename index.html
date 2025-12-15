@@ -8,7 +8,7 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- LinkedIn Icon -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -31,12 +31,38 @@ body {
   line-height: 1.6;
 }
 
-/* Layout */
-.container {
+/* Header background */
+.header {
+  position: relative;
+  background: url('header-bg.jpg') center/cover no-repeat;
+  padding: 100px 24px 80px 24px; /* extra bottom padding for icons */
+  text-align: center;
+  color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
+.header-text {
   max-width: 900px;
   margin: auto;
-  padding: 80px 24px;
-  text-align: center;
+}
+
+.header .avatar img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Top-left label */
+.top-left {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
 }
 
 /* Headings */
@@ -50,58 +76,39 @@ h2 {
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0;
-  color: #555;
+  color: #fff;
 }
 
-.location {
-  margin-top: 6px;
-  color: #777;
+/* Social icons at bottom center of header */
+.header .social {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Avatar */
-.avatar {
-  margin: 28px 0;
-}
-
-.avatar img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  animation: fadeUp 1s ease forwards;
-}
-
-/* About */
-.about {
-  max-width: 520px;
-  margin: 32px auto 0;
-  font-size: 1.05rem;
-}
-
-/* Social */
-.social {
-  margin-top: 34px;
-}
-
-.social a {
+.header .social a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--accent);
+  color: #fff;
+  font-size: 1.4rem;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.05rem;
+  margin: 0 8px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.social a:hover {
+.header .social a:hover {
   transform: translateY(-2px);
   opacity: 0.85;
 }
 
-.social i {
-  font-size: 1.4rem;
+/* About section */
+.about {
+  max-width: 520px;
+  margin: 32px auto 0;
+  font-size: 1.05rem;
+  text-align: center;
 }
 
 /* Animation */
@@ -118,11 +125,10 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .container {
-    padding: 60px 20px;
+  .header {
+    padding: 80px 16px 60px 16px;
   }
-
-  .avatar img {
+  .header .avatar img {
     width: 140px;
     height: 140px;
   }
@@ -132,24 +138,30 @@ h2 {
 
 <body>
 
-<div class="container">
+<div class="header">
+  <div class="header-text">
+    <div class="top-left">HASHemi jALIL</div>
 
-  <h1>Jalil Hashemi</h1>
+    <div class="avatar">
+      <img src="profile.jpg" alt="Jalil Hashemi">
+    </div>
 
-  <div class="avatar">
-    <img src="profile.jpg" alt="Jalil Hashemi">
+    <h1>Jalil Hashemi</h1>
+    <h2>Unternehmensentwickler</h2>
   </div>
 
-  <h2>Unternehmensentwickler</h2>
-  <div class="location">Basel, Schweiz</div>
-
   <div class="social">
-    <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank">
+    <a href="mailto:jalil.hashemi@bkb.ch" target="_blank">
       <i class="fa-solid fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank">
       <i class="fa-brands fa-linkedin"></i>
     </a>
   </div>
+</div>
 
+<div class="about">
+  <p>Für weitere Details kontaktieren Sie mich.</p>
 </div>
 
 </body>
