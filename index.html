@@ -1,237 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jalil Hashemi</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jalil Hashemi</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
 
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-:root {
-  --bg: #f6f3ef;
-  --text: #2b2b2b;
-  --accent: #c47a4a;
-  --soft: #e8e1da;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* Header background with overlay */
-.header {
-  position: relative;
-  background: url('header-bg.png') center/cover no-repeat;
-  padding: 100px 24px 120px 24px; /* extra bottom padding for circles */
-  text-align: center;
-  color: #D6E3F3;
-  border-radius: 0 0 20px 20px;
-}
-
-/* Dark overlay and subtle blur */
-.header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.35); /* dark overlay */
-  backdrop-filter: blur(2px); /* subtle blur */
-  z-index: 0;
-}
-
-/* Header content */
-.header-text {
-  position: relative; /* above overlay */
-  z-index: 1;
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Top-left label */
-.top-left {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #D6E3F3;
-  z-index: 1;
-}
-
-/* Avatar */
-.header .avatar img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  /* border: 3px solid #808791;*/
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-  animation: fadeUp 1s ease forwards;
-}
-
-/* Headings */
-h1 {
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 1.3rem;
-  font-weight: 400;
-  margin: 0;
-  color: #D6E3F3;
-}
-
-/* Social icons inside circles at bottom edge */
-.header .social-container {
-  position: absolute;
-  bottom: -30px; /* half of circle height */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  z-index: 2;
-}
-
-/* Each circle */
-.header .social-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #196BB4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  text-decoration: none; /* ensure no underline */
-  color: #D6E3F3; /* icon color */
-}
-
-.header .social-circle:hover {
-  transform: translateY(-4px);
-  opacity: 0.9;
-}
-
-.header .social-circle i {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header .social-circle a {
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* About section */
-.about {
-  max-width: 520px;
-  margin: 60px auto 0;
-  font-size: 1.05rem;
-  text-align: center;
-}
-
-/* Animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .header {
-    padding: 80px 16px 100px 16px;
-  }
-  .header .avatar img {
-    width: 140px;
-    height: 140px;
-  }
-  .top-left {
-    font-size: 0.8rem;
-    top: 12px;
-    left: 12px;
-  }
-  .header .social-container {
-    gap: 15px;
-  }
-  .header .social-circle {
-    width: 50px;
-    height: 50px;
-  }
-  .header .social-circle a {
-    font-size: 1.3rem;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">
-  <div class="top-left">HASHemi jALIL</div>
-
-  <div class="header-text">
-    <div class="avatar">
-      <img src="profile.jpg" alt="Jalil Hashemi">
+  <body>
+    <div class="header">
+      <div class="top-left">HASHemi jALIL</div>
+      <div class="header-text">
+        <div class="avatar">
+          <img src="profile.jpg" alt="Jalil Hashemi">
+        </div>
+        <h1>Jalil Hashemi</h1>
+        <h2>Unternehmensentwickler</h2>
+      </div>
+      <div class="social-container">
+        <a href="https://www.bkb.ch" target="_blank" class="social-circle">
+          <i class="fa-solid fa-briefcase"></i>
+        </a>
+        <a href="mailto:jalil.hashemi@bkb.ch" target="_blank" class="social-circle">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+          <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank" class="social-circle">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        <a href="https://www.figma.com/proto/ZKj9VmrC5AfdGYkniMl7QGUS/SRF-News-App?node-id=9-222&starting-point-node-id=9%3A222&t=xDCCxegeXCIFQMah-1" target="_blank" class="social-circle">
+          <i class="fa-brands fa-figma"></i>
+        </a>
+        <a href="https://github.com/jalilhashemi" target="_blank" class="social-circle">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
     </div>
-
-    <h1>Jalil Hashemi</h1>
-    <h2>Unternehmensentwickler</h2>
-  </div>
-
-  <!-- Social icons as circles -->
-  <div class="social-container">
-    <a href="https://www.bkb.ch" target="_blank" class="social-circle">
-      <i class="fa-solid fa-briefcase"></i>
-    </a>
-    <a href="mailto:jalil.hashemi@bkb.ch" target="_blank" class="social-circle">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-      <a href="https://www.linkedin.com/in/jalilhashemi/" target="_blank" class="social-circle">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-    <a href="https://www.figma.com/proto/ZKj9VmrC5AfdGYkniMl7QGUS/SRF-News-App?node-id=9-222&starting-point-node-id=9%3A222&t=xDCCxegeXCIFQMah-1" target="_blank" class="social-circle">
-      <i class="fa-brands fa-figma"></i>
-    </a>
-    <a href="https://github.com/jalilhashemi" target="_blank" class="social-circle">
-      <i class="fa-brands fa-github"></i>
-    </a>
-  </div>
-</div>
-
-<div class="about">
-  <p>Für weitere Details kontaktieren Sie mich.</p>
-</div>
-
-</body>
+  </body>
 </html>
