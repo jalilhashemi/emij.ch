@@ -17,7 +17,7 @@ body {
     line-height: 1.6;
 }
 
-.header {
+header {
     position: relative;
     background: url('header-bg.png') center/cover no-repeat;
     padding: 100px 24px 120px 24px;
@@ -26,7 +26,7 @@ body {
     border-radius: 0 0 20px 20px;
 }
 
-.header::before {
+header::before {
     content: "";
     position: absolute;
     top: 0;
@@ -38,7 +38,7 @@ body {
     z-index: 0;
 }
 
-.header-text {
+.header-content {
     position: relative;
     z-index: 1;
     max-width: 900px;
@@ -55,7 +55,7 @@ body {
     z-index: 1;
 }
 
-.header .avatar img {
+.avatar img {
     width: 160px;
     height: 160px;
     border-radius: 50%;
@@ -77,7 +77,7 @@ h2 {
     color: var(--title);
 }
 
-.header .social-container {
+.social-container {
     position: absolute;
     bottom: -30px;
     left: 50%;
@@ -87,7 +87,7 @@ h2 {
     z-index: 2;
 }
 
-.header .social-circle {
+.social-circle {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -101,7 +101,7 @@ h2 {
     color: var(--bg);
 }
 
-.header .social-circle:hover {
+.social-circle:hover {
     transform: translateY(-4px);
 }
 
@@ -110,14 +110,14 @@ i:hover {
     opacity: 0.8;
 }
 
-.header .social-circle i {
+.social-circle i {
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.header .social-circle a {
+.social-circle a {
     color: #fff;
     font-size: 1.5rem;
     text-decoration: none;
@@ -134,37 +134,15 @@ i:hover {
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 80px 16px 100px 16px;
-    }
-    .header .avatar img {
-        width: 140px;
-        height: 140px;
-    }
-    .top-left {
-        font-size: 0.8rem;
-        top: 12px;
-        left: 12px;
-    }
-    .header .social-container {
-        gap: 15px;
-    }
-    .header .social-circle {
-        width: 50px;
-        height: 50px;
-    }
-    .header .social-circle a {
-        font-size: 1.3rem;
-    }
+    header { padding: 80px 16px 100px 16px; }
+    .avatar img { width: 140px; height: 140px; }
+    .top-left { font-size: 0.8rem; top: 12px; left: 12px; }
+    .social-container { gap: 15px; }
+    .social-circle { width: 50px; height: 50px; }
+    .social-circle a { font-size: 1.3rem; }
 }
