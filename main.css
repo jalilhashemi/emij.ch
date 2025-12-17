@@ -131,8 +131,9 @@ i:hover {
     width: 100%;
     max-width: none;
     margin: 0 auto;
-    display: block;
+    display: flex;
     overflow: hidden;
+    justify-content: center;
 }
 
 .iceberg {
@@ -155,7 +156,6 @@ i:hover {
 
 .iceberg-text {
     font-family: lato, sans-serif;
-    font-size: 0.5rem;
     fill: var(--text);
 }
 
@@ -195,4 +195,10 @@ i:hover {
     .social-container { gap: 15px; }
     .social-circle { width: 50px; height: 50px; }
     .social-circle a { font-size: 1.3rem; }
+    .iceberg-container { height: 45vh; }
+    .iceberg-container .certificate{ transform: translate(0px, -10px) scale(1.2); }
+    .iceberg-container .certificate:hover{ transform: translate(0px, -10px) scale(1); }
+    .iceberg-text .text-bold { font-size: 0.5rem}
+    .iceberg-text .text-thin { font-size: 0.5rem }
+    .site-footer { font-size: 0.5rem; }
 }
