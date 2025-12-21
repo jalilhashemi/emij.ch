@@ -21,22 +21,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
 });
 
-const hamburger = document.getElementById('burger');
-const navMenu = document.getElementById('nav-links');
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav-links");
+const overlay = document.getElementById("overlay");
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle("active");
-
+// Open menu
+burger.addEventListener("click", () => {
+    nav.classList.add("active");
+    overlay.classList.add("active");
+    body.classList.add("nav-open");
+    body.style.overflow = "hidden";
 });
 
-// Optional: close menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+// Close menu ONLY when clicking overlay
+overlay.addEventListener("click", () => {
+    nav.classList.remove("active");
+    overlay.classList.remove("active");
+    body.classList.remove("nav-open");
+    body.style.overflow = "";
+});
+
+// Close menu when clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        overlay.classList.remove("active");
+        body.classList.remove("nav-open");
+        body.style.overflow = "";
     });
 });
+
+const navbar = document.querySelector(".navbar");
+const hero = document.getElementById("hero");
+
+const heroHeight = hero.offsetHeight;
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > heroHeight - 60) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
 
 // Language switcher example
 const languageSwitcher = document.getElementById('language-switcher');
