@@ -325,6 +325,21 @@ textarea:focus {
     border-color: var(--accent);
 }
 
+label.required::after {
+    content: "*";
+    color: red;
+}
+
+input,
+textarea {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+textarea {
+    min-height: 120px;
+}
+
 textarea {
     resize: vertical;
     min-height: 100px;

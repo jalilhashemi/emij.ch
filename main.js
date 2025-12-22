@@ -68,21 +68,25 @@ window.addEventListener("scroll", () => {
 
 
 // Language switcher
-const languageSwitcher = document.getElementById('language-switcher');
-languageSwitcher.addEventListener('change', (e) => {
-    alert('Switching language to: ' + e.target.value);
-});
+//const languageSwitcher = document.getElementById('language-switcher');
+//if (languageSwitcher) {
+ //   languageSwitcher.addEventListener("click", function () {
+ //       languageSwitcher.addEventListener('change', (e) => {
+ //           alert('Switching language to: ' + e.target.value);
+ //       });    });
+//}
 
-document.querySelectorAll(".lang").forEach(lang => {
-    lang.addEventListener("click", (e) => {
-        e.preventDefault();
 
-        document.querySelectorAll(".lang").forEach(l => l.classList.remove("active"));
-        lang.classList.add("active");
+//document.querySelectorAll(".lang").forEach(lang => {
+ //   lang.addEventListener("click", (e) => {
+  //      e.preventDefault();
 
-        console.log("Language switched to:", lang.dataset.lang);
-    });
-});
+  //      document.querySelectorAll(".lang").forEach(l => l.classList.remove("active"));
+   //     lang.classList.add("active");
+
+   //     console.log("Language switched to:", lang.dataset.lang);
+  //  });
+//});
 
 emailjs.init("dEJTQHjphxVX2xMsB");
 
@@ -101,4 +105,5 @@ contactForm.addEventListener("submit", function(event) {
             console.log(error);
         });
 });
+
 

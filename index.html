@@ -140,15 +140,19 @@
     <section class="form-container">
       <h2>Contact Me</h2>
       <form id="contact-form">
-        <label for="from_email">Your Email</label>
+
+        <label class="required" for="from_name">Name</label>
+        <input type="text" name="from_name" id="from_name" placeholder="Your name" required>
+
+        <label class="required" for="from_email">Your Email</label>
         <input type="email" name="from_email" id="from_email" placeholder="you@example.com" required>
 
-        <label for="message">Your Message</label>
+        <label class="required" for="message">Your Message</label>
         <textarea name="message" id="message" placeholder="Write your message here..." required></textarea>
+<!--        <p class="hint" id="form-hint">* Please fill all required fields</p>-->
 
         <button type="submit">Send</button>
 <!--        <p>Message sent!</p>-->
-
       </form>
     </section>
 
@@ -164,8 +168,8 @@
       </span>
     </footer>
   </main>
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="main.js"></script>
 
   </body>
 </html>
