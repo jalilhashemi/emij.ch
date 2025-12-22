@@ -92,15 +92,61 @@ emailjs.init("dEJTQHjphxVX2xMsB");
 
 // Get the form element
 const contactForm = document.getElementById("contact-form");
+const hint = document.getElementById("form-hint");
+const emailError = document.getElementById("email-error");
+
 
 contactForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent page reload
+    event.preventDefault(); // stop default submission
+
+    let isValid = true;
+    let firstEmpty = null; // track first empty field
+
+    // Check all required fields
+    this.querySelectorAll("[required]").forEach(input => {
+        input.style.borderColor = "#ccc"; // reset if filled
+        if (!input.value.trim()) {
+            isValid = false;
+            input.style.borderColor = "red"; // highlight
+            if (!firstEmpty) firstEmpty = input; // focus later
+
+            //if (input.type === "email") emailError.textContent = "* Required";
+
+        }
+
+    // Additional email format check
+    if (input.type === "email" && input.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value.trim())) {
+            isValid = false;
+            input.style.borderColor = "red";
+            if (!firstEmpty) firstEmpty = input;
+
+            emailError.textContent = "Please enter a valid email address";
+
+        }else {
+            emailError.textContent = "";
+
+        }
+    }
+});
+
+    if (!isValid) {
+        // Show hint if any required field is empty
+        hint.style.display = "block";
+        if (firstEmpty) firstEmpty.focus(); // focus first empty field
+        return; // STOP HERE, do NOT send EmailJS
+    }
+
+    // All fields filled → hide hint
+    //hint.style.display = "none";
 
     emailjs.sendForm("service_3q75bg9", "template_qviaa2a", this)
-        .then(function() {
+        .then(() => {
             alert("Message sent successfully!");
             contactForm.reset(); // Clear the form
-        }, function(error) {
+            this.querySelectorAll("[required]").forEach(input => input.style.borderColor = "#ccc");
+        }, (error) => {
             alert("Failed to send message.");
             console.log(error);
         });

@@ -50,13 +50,14 @@
   <main class="content">
 
     <section>
-      <p>
+      <p class="content-text">
         I am a Release Train Engineer helping organizations achieve alignment, flow, and predictable delivery in complex Agile environments. I translate strategy into measurable outcomes by enabling people, systems, and leadership to work effectively together.      </p>
-      <p>
-        With a background in computer science and hands-on experience across organizational development and Agile coaching, I bring a strong technical and systemic perspective to change. I have supported distributed teams across Switzerland, Belgium, Germany, and Liechtenstein, facilitating alignment, PI Planning, and stakeholder collaboration.      <p>
+      <p class="content-text">
+        With a background in computer science and hands-on experience across organizational development and Agile coaching, I bring a strong technical and systemic perspective to change. I have supported distributed teams across Switzerland, Belgium, Germany, and Liechtenstein, facilitating alignment, PI Planning, and stakeholder collaboration.
+      <p class="content-text">
         I have completed the CAS Team Dynamics in process-oriented leadership and consulting and work as a team dynamiker, with a strong focus on collaboration, leadership development, and organizational effectiveness.
       </p>
-      <p>
+      <p class="content-text">
         Currently at BKB, I drive the Agile transformation of the IT organization, supporting 17 teams and continuously strengthening collaboration, delivery capability, and team development.      </p>
     </section>
 
@@ -139,17 +140,19 @@
 
     <section class="form-container">
       <h2>Contact Me</h2>
-      <form id="contact-form">
+      <form id="contact-form" novalidate>
+
+        <p class="hint" id="form-hint">Please fill all required fields</p>
 
         <label class="required" for="from_name">Name</label>
         <input type="text" name="from_name" id="from_name" placeholder="Your name" required>
 
         <label class="required" for="from_email">Your Email</label>
+        <span class="error-message" id="email-error"></span>
         <input type="email" name="from_email" id="from_email" placeholder="you@example.com" required>
 
         <label class="required" for="message">Your Message</label>
         <textarea name="message" id="message" placeholder="Write your message here..." required></textarea>
-<!--        <p class="hint" id="form-hint">* Please fill all required fields</p>-->
 
         <button type="submit">Send</button>
 <!--        <p>Message sent!</p>-->

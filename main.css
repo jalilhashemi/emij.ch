@@ -225,7 +225,7 @@ header h1 {
     text-align: left;
 }
 
-.content p {
+.content-text{
     line-height: 1.7;
     color: var(--text);
     margin-bottom: 16px;
@@ -329,6 +329,26 @@ label.required::after {
     content: "*";
     color: red;
 }
+
+.hint {
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    display: none; /* hidden by default */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    display: block;
+    line-height:1.2;
+}
+
+
+/*input:invalid,*/
+/*textarea:invalid {*/
+/*    border-color: red;    !* highlight invalid fields *!*/
+/*}*/
 
 input,
 textarea {
