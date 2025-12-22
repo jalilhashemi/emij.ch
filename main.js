@@ -90,31 +90,30 @@ window.addEventListener("scroll", () => {
 
 emailjs.init("dEJTQHjphxVX2xMsB");
 
-// Get the form element
 const contactForm = document.getElementById("contact-form");
 const hint = document.getElementById("form-hint");
 const emailError = document.getElementById("email-error");
-
+const submitBtn = document.getElementById("submit-btn");
 
 contactForm.addEventListener("submit", function(event) {
     event.preventDefault(); // stop default submission
 
-    let isValid = true;
-    let firstEmpty = null; // track first empty field
+    if (submitBtn.disabled) return;
 
-    // Check all required fields
+    let isValid = true;
+    let firstEmpty = null;
+
+    emailError.textContent = "";
+    hint.style.display = "none";
+
     this.querySelectorAll("[required]").forEach(input => {
-        input.style.borderColor = "#ccc"; // reset if filled
+        input.style.borderColor = "#ccc";
         if (!input.value.trim()) {
             isValid = false;
-            input.style.borderColor = "red"; // highlight
-            if (!firstEmpty) firstEmpty = input; // focus later
-
-            //if (input.type === "email") emailError.textContent = "* Required";
-
+            input.style.borderColor = "red";
+            if (!firstEmpty) firstEmpty = input;
         }
 
-    // Additional email format check
     if (input.type === "email" && input.value.trim()) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(input.value.trim())) {
@@ -123,32 +122,32 @@ contactForm.addEventListener("submit", function(event) {
             if (!firstEmpty) firstEmpty = input;
 
             emailError.textContent = "Please enter a valid email address";
-
-        }else {
-            emailError.textContent = "";
-
+            if (!firstEmpty) firstEmpty = input;
         }
     }
 });
 
     if (!isValid) {
-        // Show hint if any required field is empty
         hint.style.display = "block";
-        if (firstEmpty) firstEmpty.focus(); // focus first empty field
-        return; // STOP HERE, do NOT send EmailJS
+        if (firstEmpty) firstEmpty.focus();
+        return;
     }
 
-    // All fields filled → hide hint
-    //hint.style.display = "none";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
 
     emailjs.sendForm("service_3q75bg9", "template_qviaa2a", this)
         .then(() => {
             alert("Message sent successfully!");
-            contactForm.reset(); // Clear the form
-            this.querySelectorAll("[required]").forEach(input => input.style.borderColor = "#ccc");
-        }, (error) => {
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send";
+        })
+        .catch(err => {
             alert("Failed to send message.");
-            console.log(error);
+            console.error(err);
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send";
         });
 });
 

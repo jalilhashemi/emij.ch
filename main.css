@@ -312,7 +312,7 @@ input[type="email"],
 textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 24px;   /* Space between elements */
+    margin-bottom: 24px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
@@ -332,9 +332,10 @@ label.required::after {
 
 .hint {
     color: red;
-    font-size: 1rem;
-    margin-bottom: 12px;
-    display: none; /* hidden by default */
+    font-size: 0.8rem;
+    display: none;
+    margin-top: -24px;
+    margin-bottom: 24px;
 }
 
 .error-message {
@@ -342,13 +343,9 @@ label.required::after {
     font-size: 0.8rem;
     display: block;
     line-height:1.2;
+    margin-top: -20px;
+    margin-bottom: 24px;
 }
-
-
-/*input:invalid,*/
-/*textarea:invalid {*/
-/*    border-color: red;    !* highlight invalid fields *!*/
-/*}*/
 
 input,
 textarea {
@@ -381,13 +378,6 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-
-/*!* Optional: small spacing under button *!*/
-/*button + p {*/
-/*    margin-top: 10px;*/
-/*    text-align: center;*/
-/*    color: green;*/
-/*}*/
 
 footer {
     width: 100%;
